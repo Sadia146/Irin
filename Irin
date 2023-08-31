@@ -1,0 +1,70 @@
+#include<iostream>
+using namespace std;
+
+class Family {
+public:
+    virtual void sethouse(string h) = 0;
+    virtual string gethouse() = 0;
+    Family(){
+        cout<<"My family is single family recidence."<<endl;
+    }
+    ~ Family(){
+        cout<<"distructor executed. "<<endl; 
+    }
+};
+
+class Father : virtual public Family {
+private:
+    string house;
+
+public:
+    void sethouse(string h) override {
+        house = h;
+    }
+
+    string gethouse() override {
+        return house;
+    }
+};
+
+class Mother : virtual public Family {
+protected:
+    string car;
+
+public:
+    void setcar(string c) {
+        car = c;
+    }
+
+    string getcar() {
+        return car;
+    }
+};
+
+class Child : public Father, public Mother {
+public:
+    void display() {
+        cout << "MY BEAUTIFUL FAMILY" << endl;
+    }
+    void money(int x){
+       int  first_deposite=x; 
+        cout<<"first deposite : "<<first_deposite<<endl ;
+        
+    }
+    void money(int x, int y)
+    {
+       int  second_deposite=x; 
+       int Third_deposite=y; 
+        cout<<"second_deposite :"<<second_deposite<<endl<<"Third_deposite : "<<Third_deposite<<endl;
+    }
+};
+
+int main() {
+    Child c;
+    c.sethouse("Sweet home");
+    c.setcar("BMW");
+    c.display();
+    cout << "House name: "<<c.gethouse() << endl <<"Car name : "<< c.getcar() << endl;
+    c.money(15000);
+    c.money(20000,30000);
+}
