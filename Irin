@@ -3,6 +3,7 @@ using namespace std;
 
 class Family {
 public:
+//abstraction:
     virtual void sethouse(string h) = 0;
     virtual string gethouse() = 0;
     Family(){
@@ -18,6 +19,7 @@ private:
     string house;
 
 public:
+//encapsulation :
     void sethouse(string h) override {
         house = h;
     }
@@ -40,12 +42,13 @@ public:
         return car;
     }
 };
-
+//Inheritance :
 class Child : public Father, public Mother {
 public:
     void display() {
         cout << "MY BEAUTIFUL FAMILY" << endl;
     }
+//polymorphism :
     void money(int x){
        int  first_deposite=x; 
         cout<<"first deposite : "<<first_deposite<<endl ;
